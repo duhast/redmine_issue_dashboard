@@ -1,0 +1,21 @@
+# Russian strings go here
+dashboard: "Доска"
+
+login_needed: "Вы должны войти в систему чтобы открыть доску"
+
+title_working_on: Сейчас члены команды работают над
+column_user:  "Пользователь"
+column_working_on:  "Сейчас работает над"
+column_time_elapsed:  "Прошедшее время"
+column_estimate:  "Оценка времени для задачи"
+lbl_project:  "Проект"
+
+title_issues_user: Задачи пользователей
+title_issues_project: Задачи проектов
+column_new_tasks: Новых задач
+column_all_tasks: Всего открытых задач
+
+column_project: Имя проекта
+
+status_new: Новые
+status_review: Ревью

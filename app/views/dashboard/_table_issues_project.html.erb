@@ -1,0 +1,19 @@
+  <p align="center"><i><%= l(:title_issues_project) %></i></p>
+  <table class="list">
+    <thead>
+      <tr>
+        <th><%= sortable_header l(:column_project), 'project_name', {:action => 'issues_project_table'}, 'issues-project' %></th>
+        <th><%= sortable_header l(:column_new_tasks), 'new', {:action => 'issues_project_table'}, 'issues-project' %></th>
+        <th><%= sortable_header l(:column_all_tasks), 'total', {:action => 'issues_project_table'}, 'issues-project' %></th>
+      </tr>
+    </thead>
+  <tbody>
+  <% table_data.each do |data_row| %>
+    <tr class="username <%= cycle('odd', 'even') %>">
+      <td class="username"><%= link_to data_row[:project], {:controller => 'projects', :action => 'show', :id => data_row[:project].identifier} %></td>
+      <td align="center"><%= data_row[:new] %> <span class="filter_selector">(<%= link_to l(:status_new), {:set_filter => 1, :controller => 'issues', :project_id => data_row[:project].id, :status_id => @good_status_id[0] } %> | <%= link_to l(:status_review), {:set_filter => 1, :controller => 'issues', :project_id => data_row[:project].id, :status_id => @good_status_id[1] } %>)</span></td>
+      <td align="center"><%= link_to data_row[:total], {:set_filter => 1, :project_id => data_row[:project].id, :controller => 'issues'} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  </table>

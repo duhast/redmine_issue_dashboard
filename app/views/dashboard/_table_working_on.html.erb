@@ -1,0 +1,29 @@
+  <p align="center"><i><%= l(:title_working_on) %></i></p>
+  <table class="list">
+    <thead>
+      <tr>
+        <th><%= sortable_header l(:column_user), 'user', {:action => 'efforts_table'}, 'working-on' %></th>
+        <th><%= sortable_header l(:column_working_on), 'issue_id', {:action => 'efforts_table'}, 'working-on' %></th>
+        <th><%= sortable_header l(:column_time_elapsed), 'spent_time', {:action => 'efforts_table'}, 'working-on' %></th>
+        <th><%= sortable_header l(:column_estimate), 'estimated_time', {:action => 'efforts_table'}, 'working-on' %></th>
+      </tr>
+    </thead>
+  <tbody>
+  <% table_data.each do |data_row| %>
+    <tr class="username <%= cycle('odd', 'even') %>">
+      <td class="username"><%= link_to_user(data_row[:user]) %></td>
+      <% unless data_row[:spent_time].nil? %>
+        <td class="subject">
+          <%= l(:lbl_project) %>: <%= link_to data_row[:project], {:controller => 'projects', :action => 'show', :id => data_row[:project]} %>
+          <br/>
+          <%= link_to data_row[:issue], {:controller => 'issues', :action => 'show', :id => data_row[:issue].id}, :class => 'issue' %>
+        </td>
+        <td align="center"><%= number_with_precision(data_row[:spent_time], 2) %></td>
+        <td align="center"><%= number_with_precision(data_row[:estimated_time], 2) unless data_row[:estimated_time]==0  %></td>
+      <% else %>
+        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+  </table>

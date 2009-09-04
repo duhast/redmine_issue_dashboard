@@ -1,0 +1,19 @@
+  <p align="center"><i><%= l(:title_issues_user) %></i></p>
+  <table class="list">
+    <thead>
+      <tr>
+        <th><%= sortable_header l(:column_user), 'user', {:action => 'issues_user_table'}, 'issues-user' %></th>
+        <th><%= sortable_header l(:column_new_tasks), 'new', {:action => 'issues_user_table'}, 'issues-user' %></th>
+        <th><%= sortable_header l(:column_all_tasks), 'total', {:action => 'issues_user_table'}, 'issues-user' %></th>
+      </tr>
+    </thead>
+  <tbody>
+  <% table_data.each do |data_row| %>
+    <tr class="username <%= cycle('odd', 'even') %>">
+      <td class="username"><%= link_to_user(data_row[:user]) %></td>
+      <td align="center"><%= data_row[:new]  %> <span class="filter_selector">(<%= link_to l(:status_new), {:set_filter => 1, :controller => 'issues', :assigned_to_id => data_row[:user].id, :status_id => @good_status_id[0] } %> | <%= link_to l(:status_review), {:set_filter => 1, :controller => 'issues', :assigned_to_id => data_row[:user].id, :status_id => @good_status_id[1] } %>)</span></td>
+      <td align="center"><%= link_to data_row[:total], {:set_filter => 1, :controller => 'issues', :assigned_to_id => data_row[:user].id} %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  </table>

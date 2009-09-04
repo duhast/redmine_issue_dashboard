@@ -1,0 +1,23 @@
+# English strings go here
+dashboard:  "Dashboard"
+
+login_needed: "Log in first to view the dashboard"
+
+title_working_on: Currently team members are working on
+
+column_user:  "User"
+column_working_on:  "Currently working on"
+column_time_elapsed:  "Time elapsed"
+column_estimate:  "Estimate time for this issue"
+lbl_project:  "Project"
+
+title_issues_user: Issues by user
+title_issues_project: Issues by project
+column_new_tasks: Total new issues
+column_all_tasks: Number of open issues
+
+column_project: Project name
+
+status_new: New
+status_review: Review
+
